@@ -1,0 +1,33 @@
+.body-container{
+    height: 100vh;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-container{
+    /* display: flex; */
+    height: 70%;
+    width: 20%;
+    border: 2px solid blue;
+    border-radius: 25px;
+    justify-content: center;
+}
+
+.display-container{
+    margin-top: 20px;
+    height: 50%;
+    width: 90%;
+    border: 2px solid red;
+    border-radius: 10px;
+}
+
+
+/* button container */
+
+.btn-container{
+    height: 30%;
+    width: 90%;
+    border: 2px solid orange;
+}
