@@ -7,12 +7,13 @@
 }
 
 .main-container{
-    /* display: flex; */
+    display: flex;
     height: 70%;
     width: 20%;
     border: 2px solid blue;
     border-radius: 25px;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .display-container{
@@ -27,7 +28,31 @@
 /* button container */
 
 .btn-container{
-    height: 30%;
-    width: 90%;
+    display: flex;
+    margin-top: 30px;
+    height: 35%;
+    width: 60%;
     border: 2px solid orange;
+    border-radius: 70%;
+    justify-content: space-between;
+    align-items: center;
+    /* flex-direction: column; */
+}
+
+.top-btn, .right-btn, .bottom-btn, .left-btn, .center-btn{
+    border: 1px solid cyan;
+    /* margin-top: 5px; */
+    height: 30%;
+    width: 30%;
+    
+}
+
+.top-btn, .bottom-btn{
+    
+}
+
+.inner{
+    border: 1px solid black;
+    position: absolute;
+    
 }

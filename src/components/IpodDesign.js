@@ -9,7 +9,17 @@ class IpodDesign extends React.Component{
                 <div className="main-container">
                     <div className="display-container"></div>
 
-                    <div className="btn-container"></div>
+                    <div className="btn-container">
+
+                        <div className="inner">
+                            
+                        </div>
+                        {/* <div className="top-btn"></div> */}
+                        <div className="right-btn"></div>
+                        {/* <div className="bottom-btn"></div> */}
+                        <div className="left-btn"></div>
+                        <div className="center-btn"></div>
+                    </div>
                 </div>
             </div>
         )
