@@ -36,20 +36,15 @@
     border-radius: 70%;
     justify-content: space-between;
     align-items: center;
-    /* flex-direction: column; */
 }
 
 .top-btn, .right-btn, .bottom-btn, .left-btn, .center-btn{
     border: 1px solid cyan;
-    /* margin-top: 5px; */
     height: 30%;
     width: 30%;
     
 }
 
-.top-btn, .bottom-btn{
-    
-}
 
 .inner{
     border: 1px solid black;
