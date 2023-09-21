@@ -28,6 +28,7 @@
 
 .btn-container {
     display: flex;
+    /* background-color:; */
     margin-top: 30px;
     height: 35%;
     width: 60%;
@@ -40,9 +41,12 @@
 
  .top-btn, .right-btn, .bottom-btn, .left-btn, .center-btn{
     border: 1px solid cyan;
-    height: 30%;
-    width: 30%;
+    height: 25%;
+    width: 25%;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     
 }
 
@@ -59,4 +63,16 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+}
+
+
+/* button icon */
+.btn-icon{
+    height: 50%;
+}
+
+.center-btn{
+    background-color: lightgray;
+    height: 45%;
+    width: 45%;
 }

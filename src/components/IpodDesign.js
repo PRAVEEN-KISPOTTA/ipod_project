@@ -11,11 +11,25 @@ class IpodDesign extends React.Component{
 
                     <div className="btn-container">
 
-                        <div className="top-btn"></div>
-                        <div className="right-btn"></div>
-                        <div className="bottom-btn"></div>
-                        <div className="left-btn"></div>
-                        <div className="center-btn"></div>
+                        <div className="top-btn">
+                        <b>MENU</b>
+                        </div>
+
+                        <div className="left-btn">
+                            <img className="btn-icon" src="https://cdn-icons-png.flaticon.com/128/39/39712.png"></img>
+                        </div>
+
+                        <div className="center-btn">
+                        
+                        </div>
+
+                        <div className="right-btn">
+                            <img className="btn-icon" src="https://cdn-icons-png.flaticon.com/128/660/660276.png"></img>
+                        </div>
+                        
+                        <div className="bottom-btn">
+                        <img className="btn-icon" src="https://cdn-icons-png.flaticon.com/128/724/724956.png"></img>
+                        </div>
                     </div>
                 </div>
             </div>
