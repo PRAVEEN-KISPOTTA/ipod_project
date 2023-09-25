@@ -3,13 +3,11 @@ import IpodDesign from "./components/IpodDesign";
 
 class App extends Component{
 
-  clickEvent = () =>{
-    
-  }
   render(){
     return(
       <div>
-        <IpodDesign rightClick={this.clickEvent}/>
+        
+        <IpodDesign />
       </div>
     )
   }

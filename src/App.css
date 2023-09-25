@@ -1,11 +1,11 @@
-.body-container {
+#body-container {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.main-container {
+#main-container {
     display: flex;
     height: 70%;
     width: 20%;
@@ -16,7 +16,7 @@
     box-shadow:lawngreen;
 }
 
-.display-container {
+#display-container {
     margin-top: 20px;
     height: 50%;
     width: 90%;
@@ -26,7 +26,7 @@
 
 /* button container */
 
-.btn-container {
+#btn-container {
     display: flex;
     /* background-color:; */
     margin-top: 30px;
@@ -39,7 +39,7 @@
     position: relative; /* Add position: relative to the container */
 }
 
- .top-btn, .right-btn, .bottom-btn, .left-btn, .center-btn{
+ #top-btn, #right-btn, #bottom-btn, #left-btn, #center-btn{
     border: 1px solid cyan;
     height: 25%;
     width: 25%;
@@ -51,14 +51,14 @@
 }
 
 /* Style for top-btn (position it at the top-center of the circle) */
-.top-btn {
+#top-btn {
     position: absolute; /* Add absolute positioning */
     top: 0; /* Position it at the top */
     left: 50%; /* Center it horizontally */
     transform: translateX(-50%); /* Adjust for centering */
 }
 
-.bottom-btn{
+#bottom-btn{
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -67,11 +67,11 @@
 
 
 /* button icon */
-.btn-icon{
+#btn-icon{
     height: 50%;
 }
 
-.center-btn{
+#center-btn{
     background-color: lightgray;
     height: 45%;
     width: 45%;
