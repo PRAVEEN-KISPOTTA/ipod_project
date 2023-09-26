@@ -1,5 +1,5 @@
 import {Component} from "react";
-import IpodDesign from "./components/IpodDesign";
+import IpodDesign from "./components/Ipod";
 
 class App extends Component{
 

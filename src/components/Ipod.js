@@ -1,12 +1,14 @@
 import React from "react";
 import ZingTouch from 'zingtouch';
+import ScreenComp from "./ScreenComp";
 
-class IpodDesign extends React.Component{
+class Ipod extends React.Component{
     constructor(){
         super();
 
         this.state = {
-            count: 0
+            count: 0,
+            activeItems: 'Song'
         }
     }
 
@@ -19,10 +21,13 @@ class IpodDesign extends React.Component{
         activeRegion.bind(parentElement, 'rotate', (event)=>{
 
             // let inc = this.state.count+1;
+            var newAngle = event.detail.distanceFromLast;
+            console.log("new angle - ", newAngle);
             this.setState((prev)=>({
                 count: prev.count+1
             }))
         });
+
 
         console.log("count - ", this.state.count);
     }
@@ -31,7 +36,7 @@ class IpodDesign extends React.Component{
             <div style={{...styles.bodyContainer}}>
                 <h1 style={{...styles.heading}}>Spotify</h1>
                 <div style={{...styles.mainContainer}} >
-                    <div style={{...styles.displayContainer}}></div>
+                    <div style={{...styles.displayContainer}}><ScreenComp /></div>
 
                     <div style={{...styles.btnContainer}} id="parentWheel" onMouseOver={this.wheelControl}>
 
@@ -154,4 +159,4 @@ const styles = {
     }
 }
 
-export default IpodDesign;
+export default Ipod;
