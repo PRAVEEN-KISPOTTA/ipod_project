@@ -1,5 +1,5 @@
 import {Component} from "react";
-import IpodDesign from "./components/Ipod";
+import Ipod from "./components/Ipod";
 
 class App extends Component{
 
@@ -7,7 +7,7 @@ class App extends Component{
     return(
       <div>
         
-        <IpodDesign />
+        <Ipod />
       </div>
     )
   }

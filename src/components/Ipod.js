@@ -1,6 +1,6 @@
 import React from "react";
 import ZingTouch from 'zingtouch';
-import HomeComp from "./HomeComp";
+import ScreenComp from "./ScreenComp";
 
 class Ipod extends React.Component{
     constructor(){
@@ -98,7 +98,7 @@ class Ipod extends React.Component{
     render(){
         return(
             <div>
-                <HomeComp wheelGesture={this.wheelControl}/>
+                <ScreenComp wheelGesture={this.wheelControl}/>
             </div>
         )
     }
