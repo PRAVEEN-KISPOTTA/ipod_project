@@ -7,10 +7,10 @@ class HomeComp extends Component{
             <InnerContainer style={backgroundImg}>
                 <MenuContainer>
                     <ListItem>
-                        <Items>Song</Items>
-                        <Items>Album</Items>
-                        <Items>Artist</Items>
-                        <Items>Playlist</Items>
+                        <Items style={this.props.activeItem === "song" ? currentItem : null}>Song</Items>
+                        <Items style={this.props.activeItem === "album" ? currentItem : null}>Album</Items>
+                        <Items style={this.props.activeItem === "artist" ? currentItem : null}>Artist</Items>
+                        <Items style={this.props.activeItem === "playlist" ? currentItem : null}>Playlist</Items>
                     </ListItem>
                 </MenuContainer>
             </InnerContainer>
@@ -50,4 +50,10 @@ const backgroundImg = {
     // height: "100vh",
     backgroundPosition: "center",
     backgroundSize: "cover"
+}
+
+const currentItem = {
+    backgroundColor: "#0078d4",
+    padding: "5px",
+    color: "white"
 }

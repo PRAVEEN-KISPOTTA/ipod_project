@@ -8,7 +8,7 @@ class ScreenComp extends Component{
                 <h1 style={{...styles.heading}}>Spotify</h1>
                 <div style={{...styles.mainContainer}} >
                     <div style={{...styles.displayContainer}}>
-                        <HomeComp />
+                        <HomeComp activeItem={this.props.activeItem}/>
                         </div>
 
                     <div style={{...styles.btnContainer}} id="parentWheel" onMouseOver={this.props.wheelGesture}>

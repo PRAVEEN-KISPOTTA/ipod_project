@@ -8,7 +8,7 @@ class Ipod extends React.Component{
 
         this.state = {
             count: 0,
-            activeItems: 'Song',
+            activeItems: 'song',
             activePage: "home",
             enter: 0
         }
@@ -36,7 +36,7 @@ class Ipod extends React.Component{
                 console.log("sensitivity - ", sensitivity);
                 sensitivity++;
 
-                if(sensitivity === 10){
+                if(sensitivity === 15){
                     console.log("sensitivity is 0 (-)")
                     sensitivity = 0;
 
@@ -67,7 +67,7 @@ class Ipod extends React.Component{
                 console.log("sensitivity + ", sensitivity);
                 sensitivity++;
 
-                if(sensitivity === 10){
+                if(sensitivity === 15){
                     console.log("sensitivity is 0 (+)");
 
                     sensitivity = 0;
@@ -86,6 +86,12 @@ class Ipod extends React.Component{
                             activeItems: "playlist"
                         })
                     }
+                    else if(self.state.activeItems === "playlist"){
+                        self.setState({
+                            activeItems: "song"
+                        })
+                        console.log(self.state.activeItems)
+                    }
                 }
             }
 
@@ -98,7 +104,9 @@ class Ipod extends React.Component{
     render(){
         return(
             <div>
-                <ScreenComp wheelGesture={this.wheelControl}/>
+                <ScreenComp wheelGesture={this.wheelControl}
+                            activeItem={this.state.activeItems}
+                />
             </div>
         )
     }
