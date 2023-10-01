@@ -1,5 +1,6 @@
 import { Component } from "react";
 import HomeComp from "./HomeComp";
+import SongComp from "./SongComp";
 
 class ScreenComp extends Component{
     render(){
@@ -8,7 +9,8 @@ class ScreenComp extends Component{
                 <h1 style={{...styles.heading}}>Spotify</h1>
                 <div style={{...styles.mainContainer}} >
                     <div style={{...styles.displayContainer}}>
-                        <HomeComp activeItem={this.props.activeItem}/>
+                        {/* <HomeComp activeItem={this.props.activeItem}/> */}
+                        <SongComp />
                         </div>
 
                     <div style={{...styles.btnContainer}} id="parentWheel" onMouseOver={this.props.wheelGesture}>
