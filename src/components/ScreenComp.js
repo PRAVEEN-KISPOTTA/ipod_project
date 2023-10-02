@@ -59,7 +59,8 @@ const styles = {
         borderRadius: '25px',
         flexDirection: 'column',
         alignItems: 'center',
-        boxShadow:'lawngreen'
+        boxShadow:'lawngreen',
+        backgroundImage: "radial-gradient( circle farthest-corner at 50.7% 54%,  rgba(204,254,152,1) 0%, rgba(229,253,190,1) 92.4% )"
     },
     
     displayContainer: {
@@ -135,3 +136,4 @@ const styles = {
 }
 
 export default ScreenComp;
+
