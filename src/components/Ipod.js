@@ -10,13 +10,15 @@ class Ipod extends React.Component{
             count: 0,
             activeItems: 'song',
             activePage: "home",
-            enter: 0
+            enter: 0,
+            isTrue: false
         }
     }
 
     wheelControl = () =>{
 
-        var parentElement = document.getElementById('parentWheel');
+        if(!this.state.isTrue){
+            var parentElement = document.getElementById('parentWheel');
         var activeRegion = ZingTouch.Region(parentElement);
 
         var sensitivity = 0;
@@ -100,12 +102,34 @@ class Ipod extends React.Component{
 
 
         console.log("not allowed to enter", self.state.count);
+        }
+    }
+
+    eventHandle = () =>{
+        if(this.state.isTrue){
+            this.setState({
+                isTrue: true
+            })
+        }
+        console.log(this.state.isTrue)
+    }
+
+    menuBtnHandle = () =>{
+        this.setState({
+            isTrue: false
+        })
+
+        console.log("menu", this.state.isTrue)
     }
     render(){
         return(
             <div>
                 <ScreenComp wheelGesture={this.wheelControl}
                             activeItem={this.state.activeItems}
+                            activePage={this.state.activePage}
+                            isTrue={this.state.isTrue}
+                            eventHandle={this.eventHandle}
+                            menuBtnHandle={this.menuBtnHandle}
                 />
             </div>
         )

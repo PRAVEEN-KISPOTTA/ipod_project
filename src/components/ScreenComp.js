@@ -3,19 +3,23 @@ import HomeComp from "./HomeComp";
 import SongComp from "./SongComp";
 
 class ScreenComp extends Component{
+
+
     render(){
         return(
             <div style={{...styles.bodyContainer}}>
                 <h1 style={{...styles.heading}}>Spotify</h1>
                 <div style={{...styles.mainContainer}} >
                     <div style={{...styles.displayContainer}}>
-                        {/* <HomeComp activeItem={this.props.activeItem}/> */}
-                        <SongComp />
+                        
+                        {(this.props.isTrue && this.props.activeItem === "song")? <SongComp /> : <HomeComp activeItem={this.props.activeItem}/>}
+                        {console.log("ss - ", this.props.isTrue)}
+
                         </div>
 
                     <div style={{...styles.btnContainer}} id="parentWheel" onMouseOver={this.props.wheelGesture}>
 
-                        <div style={{...styles.topBtn, ...styles.commonBtn}}>
+                        <div style={{...styles.topBtn, ...styles.commonBtn}} onClick={this.props.menuBtnHandle}>
                         <b>MENU</b>
                         </div>
 
@@ -23,11 +27,11 @@ class ScreenComp extends Component{
                             <img alt="" style={{...styles.btnIcon}} src="https://cdn-icons-png.flaticon.com/128/39/39712.png"></img>
                         </div>
 
-                        <div style={{...styles.centerBtn, ...styles.commonBtn}}>
+                        <div style={{...styles.centerBtn, ...styles.commonBtn}} onClick={this.props.eventHandle}>
                         
                         </div>
 
-                        <div style={{...styles.rightBtn, ...styles.commonBtn}} onClick={this.props.rightClick}>
+                        <div style={{...styles.rightBtn, ...styles.commonBtn}} onClick={()=>this.props.rightClick}>
                             <img alt="" style={{...styles.btnIcon}} src="https://cdn-icons-png.flaticon.com/128/660/660276.png"></img>
                         </div>
                         
