@@ -10,8 +10,7 @@ class Ipod extends React.Component{
             count: 0,
             activeItems: 'song',
             activePage: "home",
-            enter: 0,
-            isTrue: false
+            enter: 0
         }
     }
 
@@ -25,7 +24,6 @@ class Ipod extends React.Component{
         var self = this;
         self.state.enter += 1;
 
-        if(self.state.enter < 2){
             // var childElement = document.getElementById('childWheel');
         activeRegion.bind(parentElement, 'rotate', (event)=>{
 
@@ -98,38 +96,20 @@ class Ipod extends React.Component{
             }
 
         });
-        }
+        
 
 
         console.log("not allowed to enter", self.state.count);
         }
     }
 
-    eventHandle = () =>{
-        if(this.state.isTrue){
-            this.setState({
-                isTrue: true
-            })
-        }
-        console.log(this.state.isTrue)
-    }
 
-    menuBtnHandle = () =>{
-        this.setState({
-            isTrue: false
-        })
-
-        console.log("menu", this.state.isTrue)
-    }
     render(){
         return(
             <div>
                 <ScreenComp wheelGesture={this.wheelControl}
                             activeItem={this.state.activeItems}
                             activePage={this.state.activePage}
-                            isTrue={this.state.isTrue}
-                            eventHandle={this.eventHandle}
-                            menuBtnHandle={this.menuBtnHandle}
                 />
             </div>
         )

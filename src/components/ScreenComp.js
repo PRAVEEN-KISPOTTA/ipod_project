@@ -1,6 +1,5 @@
 import { Component } from "react";
 import HomeComp from "./HomeComp";
-import SongComp from "./SongComp";
 
 class ScreenComp extends Component{
 
@@ -12,14 +11,13 @@ class ScreenComp extends Component{
                 <div style={{...styles.mainContainer}} >
                     <div style={{...styles.displayContainer}}>
                         
-                        {(this.props.isTrue && this.props.activeItem === "song")? <SongComp /> : <HomeComp activeItem={this.props.activeItem}/>}
-                        {console.log("ss - ", this.props.isTrue)}
+                        <HomeComp activeItem={this.props.activeItem}/>
 
                         </div>
 
                     <div style={{...styles.btnContainer}} id="parentWheel" onMouseOver={this.props.wheelGesture}>
 
-                        <div style={{...styles.topBtn, ...styles.commonBtn}} onClick={this.props.menuBtnHandle}>
+                        <div style={{...styles.topBtn, ...styles.commonBtn}}>
                         <b>MENU</b>
                         </div>
 
@@ -27,7 +25,7 @@ class ScreenComp extends Component{
                             <img alt="" style={{...styles.btnIcon}} src="https://cdn-icons-png.flaticon.com/128/39/39712.png"></img>
                         </div>
 
-                        <div style={{...styles.centerBtn, ...styles.commonBtn}} onClick={this.props.eventHandle}>
+                        <div style={{...styles.centerBtn, ...styles.commonBtn}}>
                         
                         </div>
 
