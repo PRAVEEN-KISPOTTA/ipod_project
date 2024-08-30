@@ -2,117 +2,75 @@ import React from "react";
 import ZingTouch from 'zingtouch';
 import ScreenComp from "./ScreenComp";
 
-class Ipod extends React.Component{
-    constructor(){
+class Ipod extends React.Component {
+    constructor() {
         super();
 
         this.state = {
             count: 0,
             activeItems: 'song',
             activePage: "home",
-            enter: 0
-        }
+            sensitivity: 0
+        };
     }
 
-    wheelControl = () =>{
+    componentDidMount() {
+        this.wheelControl();
+    }
 
-        if(!this.state.isTrue){
-            var parentElement = document.getElementById('parentWheel');
-        var activeRegion = ZingTouch.Region(parentElement);
+    wheelControl = () => {
+        const parentElement = document.getElementById('parentWheel');
+        if (!parentElement) return;
 
-        var sensitivity = 0;
-        var self = this;
-        self.state.enter += 1;
+        const activeRegion = ZingTouch.Region(parentElement);
+        const self = this;
 
-            // var childElement = document.getElementById('childWheel');
-        activeRegion.bind(parentElement, 'rotate', (event)=>{
+        activeRegion.bind(parentElement, 'rotate', (event) => {
+            const newAngle = event.detail.distanceFromLast;
+            let { sensitivity, activeItems } = self.state;
 
-            // let inc = self.state.count+1;
-            var newAngle = event.detail.distanceFromLast;
-            console.log("new angle - ", newAngle);
-            
-
-            if(newAngle < 0){
-                console.log("sensitivity - ", sensitivity);
+            if (newAngle < 0) {
                 sensitivity++;
 
-                if(sensitivity === 15){
-                    console.log("sensitivity is 0 (-)")
+                if (sensitivity === 15) {
                     sensitivity = 0;
-
-                    if(self.state.activeItems === "song"){
-                        self.setState({
-                            activeItems: "playlist"
-                        })
-                    }
-                    else if(self.state.activeItems === "playlist"){
-                        self.setState({
-                            activeItems: "artist"
-                        })
-                    }
-                    else if(self.state.activeItems === "artist"){
-                        self.setState({
-                            activeItems: "album"
-                        })
-                    }
-                    else if(self.state.activeItems === "album"){
-                        self.setState({
-                            activeItems: "song"
-                        })
-                    }
+                    activeItems = this.getNextActiveItem(activeItems, 'decrement');
                 }
+            } else if (newAngle > 0) {
+                sensitivity++;
                 
-            }
-            else if(newAngle > 0){
-                console.log("sensitivity + ", sensitivity);
-                sensitivity++;
 
-                if(sensitivity === 15){
-                    console.log("sensitivity is 0 (+)");
-
+                if (sensitivity === 15) {
                     sensitivity = 0;
-                    if(self.state.activeItems === "song"){
-                        self.setState({
-                            activeItems: "album"
-                        })
-                    }
-                    else if(self.state.activeItems === "album"){
-                        self.setState({
-                            activeItems: "artist"
-                        })
-                    }
-                    else if(self.state.activeItems === "artist"){
-                        self.setState({
-                            activeItems: "playlist"
-                        })
-                    }
-                    else if(self.state.activeItems === "playlist"){
-                        self.setState({
-                            activeItems: "song"
-                        })
-                        console.log(self.state.activeItems)
-                    }
+                    activeItems = this.getNextActiveItem(activeItems, 'increment');
                 }
             }
 
+            self.setState({ sensitivity, activeItems });
         });
-        
+    }
 
+    getNextActiveItem = (current, direction) => {
+        const items = ['song', 'playlist', 'artist', 'album'];
+        const index = items.indexOf(current);
 
-        console.log("not allowed to enter", self.state.count);
+        if (direction === 'increment') {
+            return items[(index + 1) % items.length];
+        } else {
+            return items[(index - 1 + items.length) % items.length];
         }
     }
 
-
-    render(){
-        return(
+    render() {
+        return (
             <div>
-                <ScreenComp wheelGesture={this.wheelControl}
-                            activeItem={this.state.activeItems}
-                            activePage={this.state.activePage}
+                <ScreenComp 
+                    wheelGesture={this.wheelControl}
+                    activeItem={this.state.activeItems}
+                    activePage={this.state.activePage}
                 />
             </div>
-        )
+        );
     }
 }
 
